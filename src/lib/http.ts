@@ -1,4 +1,3 @@
-import { randomUUID } from "node:crypto";
 import { BadRequestError, toProblemResponse } from "./errors";
 import { getAllowedOriginsList } from "./env";
 
@@ -117,7 +116,7 @@ export function defineHandler<
     request: Request,
     rawContext?: any
   ): Promise<Response> => {
-    const requestId = randomUUID();
+    const requestId = crypto.randomUUID();
     const corsHeaders = getCorsHeaders(request);
 
     let pathname = "/";
